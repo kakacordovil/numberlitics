@@ -36,12 +36,28 @@ function toFinish(){
     if (inputvalues.length == 0){
         window.alert('Empty. Insert the values to finish:')
     } else {
+        let total = inputvalues.length
+        let larger = inputvalues[0]
+        let smaller = inputvalues[0]
+        let sum = 0
+        let avarage = 0
+        for(let pos in inputvalues){
+            sum += inputvalues[pos]
+            
+            if(inputvalues[pos] < smaller) {
+                smaller = inputvalues[pos]
+            }
+            if(inputvalues[pos] > larger) {
+                larger = inputvalues[pos]
+            }
+        }
+        avarage = sum / total
+
         result.innerHTML = ``
+        result.innerHTML += `<p>You have ${total} registered values. </p>`
+        result.innerHTML += `<p>The larger value is ${larger}. </p>`
+        result.innerHTML += `<p>The smaller value is ${smaller}. </p>`
+        result.innerHTML += `<p>The sum of the values is ${sum}. </p>`
+        result.innerHTML += `<p>The values avarage is ${avarage}. </p>`
     }
-}
-
-
-
-function mid(){
-    
 }
